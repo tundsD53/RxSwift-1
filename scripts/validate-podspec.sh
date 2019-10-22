@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # This is kind of naughty, I know,
 # but we need to know what will the state be once RxSwift is deployed.
 
@@ -49,7 +51,7 @@ function validate() {
     local PODSPEC=$1
 
     validate=(pod lib lint $PODSPEC --verbose --no-clean ${arg} "${SWIFT_VERSION}")
-    if [ $TARGET = "RxCocoa" ]; then
+    if [[ $TARGET = "RxCocoa" ]]; then
       validate+=(--allow-warnings)
     fi
     echo "${validate[@]}"
